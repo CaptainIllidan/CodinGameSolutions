@@ -1,0 +1,26 @@
+(ns Player
+  (:require [clojure.string :as str])
+  (:gen-class))
+
+; CodinGame planet is being attacked by slimy insectoid aliens.
+; <---
+; Hint:To protect the planet, you can implement the pseudo-code provided in the statement, below the player.
+
+(defn output [msg] (println msg) (flush))
+(defn debug [msg] (binding [*out* *err*] (println msg) (flush)))
+
+(defn -main [& args]
+  (while true
+    (let [; name of enemy 1
+          enemy1 (read-line)
+          ; distance to enemy 1
+          dist1 (Integer/parseInt (read-line))
+          ; name of enemy 2
+          enemy2 (read-line)
+          ; distance to enemy 2
+          dist2 (Integer/parseInt (read-line))]
+      
+      ; (debug "Debug messages...")
+      
+      ; You have to output a correct ship name to shoot ("Buzz", enemy1, enemy2, ...)
+      (output (if (< dist1 dist2) enemy1 enemy2)))))
